@@ -20,19 +20,29 @@ randomize.addEventListener('click', result);
 
 function result() {
 
+  let newStory = console.log(storyText.replace(":insertx:", xItem && ":insertx:", xItem && ":inserty:", yItem && ":insertz:", zItem));
+
+  let xItem = randomValueFromArray(insertX);
+  let yItem = randomValueFromArray(insertY);
+  let zItem = randomValueFromArray(insertZ);
+
+ 
+
   if(customName.value !== '') {
     const name = customName.value;
-
+    newStory.replace('Bob', customName);
   }
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature =  Math.round(94);
+    const weight = Math.round(300/14) + ' stone';
+    const temperature =  Math.round((94-32)*(5/9)) + ' centigrade';
+    newStory = newStory.replace("94 fahrenheit", temperature);
+    newStory = newStory.replace("300 pounds", weight);
 
   }
 
-  story.textContent = ;
+  story.textContent = newStory;
   story.style.visibility = 'visible';
 }
-© 2022 GitHub, Inc.
+
 
